@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sibol — Feature Graphic Generator</title>
+<style>
+  body { margin:0; background:#F1EFE8; color:#2A3B3F; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; text-align:center; padding:28px 16px 60px; }
+  h1 { font-size:1.3rem; }
+  p { color:#5A7178; }
+  canvas { width:100%; max-width:1024px; height:auto; border:1px solid #D9D4C7; border-radius:12px; box-shadow:0 8px 24px rgba(62,107,99,.12); background:#fff; }
+  .btn { display:inline-block; margin-top:18px; background:#3E6B63; color:#fff; text-decoration:none; padding:12px 22px; border-radius:999px; font-weight:600; font-size:1rem; border:none; cursor:pointer; }
+  .meta { margin-top:10px; font-size:.85rem; color:#7A8A8E; }
+</style>
+</head>
+<body>
+  <h1>Sibol — Play Store Feature Graphic</h1>
+  <p>Exact size required by Google Play: <strong>1024 × 500 px</strong>. Click the button to download.</p>
+  <canvas id="c" width="1024" height="500"></canvas>
+  <div><a id="dl" class="btn" download="sibol-feature-graphic-1024x500.png">⬇ Download PNG (1024 × 500)</a></div>
+  <div class="meta">If the download looks blurry, that's just the on-screen preview — the saved file is full 1024×500 resolution.</div>
+<script>
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500" viewBox="0 0 1024 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBFAF6"/><stop offset="1" stop-color="#E7F0EC"/></linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5C9A8B"/><stop offset="1" stop-color="#3E6B63"/></linearGradient>
+  </defs>
+  <rect width="1024" height="500" fill="url(#bg)"/>
+  <circle cx="880" cy="90" r="160" fill="#3E6B63" opacity="0.06"/>
+  <circle cx="120" cy="470" r="140" fill="#3E6B63" opacity="0.05"/>
+  <text x="96" y="210" font-family="Georgia, serif" font-size="104" font-weight="700" fill="#2A3B3F">Sibol</text>
+  <text x="100" y="266" font-family="Arial, sans-serif" font-size="30" font-weight="600" fill="#3E6B63">Your daily companion for mental wellness growth</text>
+  <text x="100" y="312" font-family="Arial, sans-serif" font-size="22" fill="#5A7178">Mood tracking &#183; Mindfulness &#183; Calm &#183; Private</text>
+  <text x="100" y="420" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#5A7178">by HealSpace Psychological Clinic</text>
+  <g transform="translate(800,250)">
+    <circle r="120" fill="#FFFFFF"/>
+    <circle r="120" fill="none" stroke="#3E6B63" stroke-opacity="0.08" stroke-width="2"/>
+    <path d="M0,70 C0,30 0,10 0,-10" stroke="#3E6B63" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M0,2 C-58,2 -82,-40 -78,-74 C-44,-78 -4,-54 0,2 Z" fill="url(#leaf)"/>
+    <path d="M0,-18 C44,-22 84,-6 86,28 C52,36 8,18 0,-18 Z" fill="#5C9A8B"/>
+    <circle cx="-26" cy="78" r="7" fill="#C9B89A"/><circle cx="0" cy="84" r="7" fill="#C9B89A"/><circle cx="26" cy="78" r="7" fill="#C9B89A"/>
+  </g>
+</svg>`;
+const c = document.getElementById('c'), ctx = c.getContext('2d');
+const img = new Image();
+img.onload = () => {
+  ctx.drawImage(img, 0, 0, 1024, 500);
+  document.getElementById('dl').href = c.toDataURL('image/png');
+};
+img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+</script>
+</body>
+</html>
